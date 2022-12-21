@@ -25,7 +25,9 @@ pipeline{
             stage("run python"){
                 agent{label "python_tst1"}
                 steps{
-                    dir("")
+                    dir("server"){
+                        sh "python ./server.py"
+                    }
                 }
             }
         }
