@@ -19,7 +19,12 @@ pipeline{
             stage("Copy Files to python"){
                 agent{label "python_tst1"}
                 steps{
-                    sh "cp -r * /usr/share/nginx/html"
+                   echo "Stage 1- Checkout"
+                    git 'https://github.com/rickandaluz/devops-prj.git'
+                    sh 'git checkout build-2'
+                    sh 'git branch'
+                    sh "pwd"
+                    sh "ls"
                 }
             }
             stage("run python"){
